@@ -1,0 +1,62 @@
+{
+  "name": "bill-buddy-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/server.js",
+  "author": {
+    "name": "Nazmul Hassan",
+    "email": "nazmulnhb@gmail.com"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "node scripts/build.mjs",
+    "dev": "nodemon",
+    "deploy": "node scripts/build.mjs && vercel --prod",
+    "start": "node dist/server.js",
+    "format": "prettier --write src/",
+    "lint": "node scripts/lint.mjs",
+    "fix": "node scripts/fix.mjs"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "packageManager": "pnpm@10.5.2",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "chalk": "4.1.2",
+    "cloudinary": "^2.5.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.11.0",
+    "multer": "1.4.5-lts.1",
+    "nhb-toolbox": "^2.3.5",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@types/bcrypt": "^5.0.2",
+    "@types/cookie-parser": "^1.4.8",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/multer": "^1.4.12",
+    "@types/node": "^22.13.8",
+    "@typescript-eslint/eslint-plugin": "^8.25.0",
+    "@typescript-eslint/parser": "^8.25.0",
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^10.0.2",
+    "eslint-plugin-prettier": "^5.2.3",
+    "execa": "^9.5.2",
+    "globals": "^16.0.0",
+    "globby": "^14.1.0",
+    "nodemon": "^3.1.9",
+    "prettier": "^3.5.3",
+    "progress-estimator": "^0.3.1",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.25.0"
+  }
+}
