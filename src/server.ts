@@ -1,10 +1,13 @@
 import chalk from 'chalk';
-import type { Server } from 'http';
+import { createServer } from 'http';
 import app from './app';
 import configs from './app/configs';
 import { connectDB } from './app/configs/db';
+import { setupSocket } from './socket';
 
-let server: Server;
+const server = createServer(app);
+
+export const io = setupSocket(server);
 
 const bootStrap = async () => {
 	try {
@@ -12,7 +15,7 @@ const bootStrap = async () => {
 		await connectDB();
 
 		// Listen to the Server
-		server = app.listen(configs.port, () => {
+		server.listen(configs.port, () => {
 			console.info(
 				chalk.yellowBright(
 					`👂 Server is Listening on Port: ${configs.port}`,
