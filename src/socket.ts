@@ -19,6 +19,7 @@ export const setupSocket = (server: HttpServer) => {
 
 		socket.on('new-expense', (expense) => {
 			socket.broadcast.emit('expense-added', expense);
+			console.info(expense);
 		});
 
 		socket.on('disconnect', () => {
