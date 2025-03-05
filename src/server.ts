@@ -7,6 +7,7 @@ import { setupSocket } from './socket';
 
 const server = createServer(app);
 
+/** - Use instance of socket.io */
 export const io = setupSocket(server);
 
 const bootStrap = async () => {
