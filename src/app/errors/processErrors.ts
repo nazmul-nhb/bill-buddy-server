@@ -1,15 +1,16 @@
-import { ZodError } from 'zod';
-import { typeGuards } from './errorGuards';
-import { handleZodErrors } from './zodErrors';
 import { Error as MongoError } from 'mongoose';
-import { mongoErrors } from './mongoErrors';
-import { genericErrors } from './genericErrors';
-import type { IErrorResponse } from '../types/interfaces';
+import { ZodError } from 'zod';
 import { ErrorWithStatus } from '../classes/ErrorWithStatus';
+import type { IErrorResponse } from '../types/interfaces';
+import { typeGuards } from './errorGuards';
+import { genericErrors } from './genericErrors';
+import { mongoErrors } from './mongoErrors';
+import { handleZodErrors } from './zodErrors';
 
 /**
- * Processes an error of `unknown` type and returns a structured response.
+ * * Processes an error of `unknown` type and returns a structured response.
  * @param error An error of `unknown` type.
+ * @returns Processed & structured `Error Response`.
  */
 const processErrors = (error: unknown): IErrorResponse => {
 	const stack = error instanceof Error ? error.stack : 'Stack Not Available!';

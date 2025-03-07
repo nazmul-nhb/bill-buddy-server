@@ -22,7 +22,7 @@ export const setupSocket = (server: HttpServer) => {
 	io.on('connection', (socket) => {
 		console.info(chalk.yellowBright(`⚡ User Connected: ${socket.id}`));
 
-		socket.on('new-expense', (expense) => {
+		socket.on('new-expense', (expense: string) => {
 			socket.broadcast.emit('expense-added', expense);
 			console.info(expense);
 		});

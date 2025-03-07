@@ -1,11 +1,11 @@
 import chalk from 'chalk';
+import type { ErrorRequestHandler, RequestHandler } from 'express';
+import { ErrorWithStatus } from '../classes/ErrorWithStatus';
 import configs from '../configs';
 import { STATUS_CODES } from '../constants';
 import processErrors from '../errors/processErrors';
-import { ErrorWithStatus } from '../classes/ErrorWithStatus';
-import type { RequestHandler, ErrorRequestHandler } from 'express';
 
-/** Middleware to Handle "Not Found" Errors.*/
+/** * Middleware to Handle "Route Not Found" Errors.*/
 export const handleRouteNotFound: RequestHandler = (req, _res, next) => {
 	const error = new ErrorWithStatus(
 		'Not Found Error',
@@ -17,17 +17,17 @@ export const handleRouteNotFound: RequestHandler = (req, _res, next) => {
 	return next(error);
 };
 
-/** Middleware to Handle Global Errors. */
+/** * Middleware to Handle Global Errors. */
 export const catchAllErrors: ErrorRequestHandler = (err, _req, res, next) => {
 	const { statusCode, name, errorSource, stack } = processErrors(err);
 
 	// * Log error msg in the server console
-	console.error(chalk.redBright.bold('🛑 Errors:'));
+	console.error(chalk.redBright.bold('🛑 Error(s) Occurred:'));
 	errorSource.forEach((err) => {
 		console.error(chalk.redBright(`	➡ ${err.message}`));
 	});
 
-	// console.error(err);
+	console.error(chalk.redBright(`🛑 ${err}`));
 
 	// * Delegate to the default Express error handler
 	// ? if the headers have already been sent to the client
