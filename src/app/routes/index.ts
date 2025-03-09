@@ -10,6 +10,6 @@ const routes: IRoute[] = [
 	{ path: '/users', route: userRoutes },
 ];
 
-routes.forEach((route) => router.use(route.path, route.route));
+routes.forEach((item) => router.use(item.path, item.route));
 
 export default router;

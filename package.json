@@ -1,7 +1,7 @@
 {
   "name": "bill-buddy-server",
   "version": "1.0.0",
-  "description": "Server for Bill Buddy - A Expenditure Management App.",
+  "description": "Server for Bill Buddy - An Expenditure Management App.",
   "main": "dist/server.js",
   "author": {
     "name": "Nazmul Hassan",
@@ -12,6 +12,7 @@
     "build": "node scripts/build.mjs",
     "dev": "nodemon",
     "deploy": "node scripts/build.mjs && vercel --prod",
+    "module": "node scripts/module.mjs",
     "start": "node dist/server.js",
     "format": "prettier --write src/",
     "lint": "node scripts/lint.mjs",
