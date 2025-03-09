@@ -78,7 +78,15 @@ export const ${capitalizeString(module)} = model<I${capitalizeString(module)}Doc
         },
         {
             name: `${module}.validation.ts`,
-            content: "// zod, joi, valibot, express validator etc. validation ",
+            content: `
+import { z } from 'zod';
+
+const creationSchema = z
+	.object({})
+	.strict();
+
+export const ${module}Validations = { creationSchema };
+            `,
         },
         {
             name: `${module}.types.ts`,
@@ -108,7 +116,7 @@ async function createFolderAndFiles(module) {
     try {
         await fs.access(modulePath);
 
-        console.error(chalk.redBright(`🛑 Error: Folder "${module}" already exists.`));
+        console.error(chalk.redBright(`🛑 Error: Folder "${module}" already exists!`));
 
         return;
     } catch (_err) {
@@ -129,7 +137,7 @@ async function createFolderAndFiles(module) {
         }),
     );
 
-    console.info(chalk.cyan(`✅ Successfully created ${module} module`));
+    console.info(chalk.cyan(`✅ Successfully created "${module}" module`));
 }
 
 (async () => {

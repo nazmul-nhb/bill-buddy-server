@@ -1,1 +1,5 @@
-// zod, joi, valibot, express validator etc. validation 
+import { z } from 'zod';
+
+const creationSchema = z.object({}).strict();
+
+export const expenseValidations = { creationSchema };

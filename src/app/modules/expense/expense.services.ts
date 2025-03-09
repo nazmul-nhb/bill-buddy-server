@@ -1,4 +1,3 @@
-
 import { QueryBuilder } from '../../classes/QueryBuilder';
 import { Expense } from './expense.model';
 
@@ -12,4 +11,3 @@ const getAllExpensesFromDB = async (query?: Record<string, unknown>) => {
 };
 
 export const expenseServices = { getAllExpensesFromDB };
-            
