@@ -6,7 +6,7 @@ import configs from './app/configs';
 /**
  * * Set up socket.io.
  * @param server Instance of NodeJS Server.
- * @returns Socket io.
+ * @returns Instance of socket io.
  */
 export const setupSocket = (server: HttpServer) => {
 	const io = new Server(server, {
