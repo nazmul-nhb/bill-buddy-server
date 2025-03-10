@@ -22,12 +22,15 @@ export const handleZodErrors = (
 					', ',
 				)}” but received “${zodIssue.received}”!`;
 				break;
-			case ZodIssueCode.too_small:
-				message = `Value for “${path}” is too small. Minimum: ${zodIssue.minimum}!`;
-				break;
-			case ZodIssueCode.too_big:
-				message = `Value for “${path}” is too large. Maximum: ${zodIssue.maximum}!`;
-				break;
+			// case ZodIssueCode.too_small:
+			// 	message =
+			// 		zodIssue.type === 'string' ?
+			// 			`Value for “${path}” must contain at least ${zodIssue.minimum} character(s)`
+			// 		:	`Value for “${path}” is too small. Minimum: ${zodIssue.minimum}!`;
+			// 	break;
+			// case ZodIssueCode.too_big:
+			// 	message = `Value for “${path}” is too large. Maximum: ${zodIssue.maximum}!`;
+			// 	break;
 			case ZodIssueCode.invalid_string:
 				message = `Invalid string format for “${path}”. Expected ${zodIssue.validation}!`;
 				break;

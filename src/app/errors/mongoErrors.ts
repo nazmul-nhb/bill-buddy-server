@@ -5,9 +5,7 @@ import type {
 	IErrorSource,
 } from '../types/interfaces';
 
-/**
- * Processes Mongoose Validation Errors and returns a structured response.
- */
+/** * Processes Mongoose Validation Errors and returns a structured response. */
 export const handleValidationError = (
 	error: MongoError.ValidationError,
 	stack?: string,
@@ -21,15 +19,13 @@ export const handleValidationError = (
 
 	return {
 		statusCode: 400,
-		name: 'Validation Error',
+		name: 'Mongo Validation Error',
 		errorSource,
 		stack,
 	};
 };
 
-/**
- * Processes Mongoose Cast Errors and returns a structured response.
- */
+/** * Processes Mongoose Cast Errors and returns a structured response. */
 export const handleCastError = (
 	error: MongoError.CastError,
 	stack?: string,
@@ -47,6 +43,7 @@ export const handleCastError = (
 	};
 };
 
+/** * Processes MongoDB Duplicate Errors and returns a structured response. */
 export const handleDuplicateError = (
 	error: IDuplicateError,
 	stack?: string,
@@ -54,7 +51,7 @@ export const handleDuplicateError = (
 	const key = Object.keys(error.keyValue)[0];
 	return {
 		statusCode: 409,
-		name: 'MongoDB Duplicate Error',
+		name: 'Mongo Duplicate Error',
 		errorSource: [
 			{
 				path: key,

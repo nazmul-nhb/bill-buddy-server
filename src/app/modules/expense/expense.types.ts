@@ -1,10 +1,13 @@
 import type { Document, Types } from 'mongoose';
 
-export interface IExpense {
-	// Define interface
-	property: 'Define types';
+export interface IExpenseData {
+	items: string;
+	cost: number;
+	receipt?: string;
+	originalTime: string;
+	createdBy: Types.ObjectId;
 }
 
-export interface IExpenseDoc extends IExpense, Document {
+export interface IExpenseDoc extends IExpenseData, Document {
 	_id: Types.ObjectId;
 }
