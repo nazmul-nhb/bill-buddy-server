@@ -2,9 +2,7 @@ import type { ZodError } from 'zod';
 import { ZodIssueCode } from 'zod';
 import type { IErrorResponse, IErrorSource } from '../types/interfaces';
 
-/**
- * Processes Zod Validation Errors and returns a structured response.
- */
+/** * Processes Zod Validation Errors and returns a structured response. */
 export const handleZodErrors = (
 	error: ZodError,
 	stack?: string,

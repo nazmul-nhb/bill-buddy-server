@@ -1,5 +1,6 @@
 import { Schema, model } from 'mongoose';
 import type { IExpenseDoc } from './expense.types';
+import { EXPENSE_TYPES, PAYMENT_TYPES } from './expense.constants';
 
 const expenseSchema = new Schema<IExpenseDoc>(
 	{
@@ -10,6 +11,16 @@ const expenseSchema = new Schema<IExpenseDoc>(
 		},
 		cost: {
 			type: Number,
+			required: true,
+		},
+		expenseType: {
+			type: String,
+			enum: EXPENSE_TYPES,
+			required: true,
+		},
+		paymentType: {
+			type: String,
+			enum: PAYMENT_TYPES,
 			required: true,
 		},
 		receipt: {
