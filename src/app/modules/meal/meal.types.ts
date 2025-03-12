@@ -1,12 +1,13 @@
-
 import type { Document, Types } from 'mongoose';
+import type { MEAL_NAMES } from './meal.constants';
 
-export interface IMeal {
-    // Define interface
-    property: "Define types";
+export interface IMealData {
+	date: string;
+	quantity: number;
+	mealName: (typeof MEAL_NAMES)[number];
+	user: Types.ObjectId;
 }
 
-export interface IMealDoc extends IMeal, Document {
+export interface IMealDoc extends IMealData, Document {
 	_id: Types.ObjectId;
 }
-            

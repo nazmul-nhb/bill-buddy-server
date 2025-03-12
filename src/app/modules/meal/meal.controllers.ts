@@ -1,13 +1,21 @@
-
 import catchAsync from '../../utilities/catchAsync';
 import sendResponse from '../../utilities/sendResponse';
 import { mealServices } from './meal.services';
-            
-const getAllMeals = catchAsync(async (_req, res) => {
-    const meals = await mealServices.getAllMealsFromDB();
+import type { IMealData } from './meal.types';
 
-    sendResponse(res, 'Meal', 'GET', meals);
+const createNewMeal = catchAsync(async (req, res) => {
+	const meal = await mealServices.createMealInDB(
+		req.body as IMealData,
+		req?.user?.email,
+	);
+
+	sendResponse(res, 'Meal', 'POST', meal);
 });
 
-export const mealControllers = { getAllMeals };
-            
+const getAllMeals = catchAsync(async (_req, res) => {
+	const meals = await mealServices.getAllMealsFromDB();
+
+	sendResponse(res, 'Meal', 'GET', meals);
+});
+
+export const mealControllers = { createNewMeal, getAllMeals };
