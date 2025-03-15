@@ -2,7 +2,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import type { Application, Request, Response } from 'express';
 import express from 'express';
-import configs from './app/configs';
+import { corsOptions } from './app/configs/cors';
 import {
 	catchAllErrors,
 	handleRouteNotFound,
@@ -14,15 +14,7 @@ import sendResponse from './app/utilities/sendResponse';
 const app: Application = express();
 
 // * Respect CORS Policy
-app.use(
-	cors({
-		origin:
-			configs.NODE_ENV === 'development' ?
-				'http://localhost:5173'
-			:	'https://bill-bbuddy-nhb.vercel.app',
-		credentials: true,
-	}),
-);
+app.use(cors(corsOptions));
 
 // * Use Cookie Parser
 app.use(cookieParser());

@@ -39,8 +39,8 @@ importers:
         specifier: 1.4.5-lts.1
         version: 1.4.5-lts.1
       nhb-toolbox:
-        specifier: ^2.3.5
-        version: 2.3.5
+        specifier: ^2.3.8
+        version: 2.3.8
       socket.io:
         specifier: ^4.8.1
         version: 4.8.1
@@ -1229,8 +1229,8 @@ packages:
     resolution: {integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==}
     engines: {node: '>= 0.6'}
 
-  nhb-toolbox@2.3.5:
-    resolution: {integrity: sha512-WNXh5Ar8kJlGZVGYYJnpWi5yTkf7zH3ncbnZj792+g0RDtUHf8c0iZBEdps/NYvb8OYoQwUBf2I5AxpoanHy8Q==}
+  nhb-toolbox@2.3.8:
+    resolution: {integrity: sha512-Y5jn/druj6UnRXY/zBJ+UD3ska7ew8qTLYXE3+6N3T5BFpo7HkIBfYwDEqrF+Xsms5kij4F0lkjS+Gc6uxRz/Q==}
 
   node-addon-api@5.1.0:
     resolution: {integrity: sha512-eh0GgfEkpnoWDq+VY8OyvYhFEzBk6jIYbRKdIlyTiAXIVJ8PyBaKb0rp7oDtoddbdoHWhq8wwr+XZ81F1rpNdA==}
@@ -2922,7 +2922,7 @@ snapshots:
 
   negotiator@0.6.3: {}
 
-  nhb-toolbox@2.3.5: {}
+  nhb-toolbox@2.3.8: {}
 
   node-addon-api@5.1.0: {}
 

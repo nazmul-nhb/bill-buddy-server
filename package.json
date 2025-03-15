@@ -26,7 +26,7 @@
     "application"
   ],
   "license": "ISC",
-  "packageManager": "pnpm@10.5.2",
+  "packageManager": "pnpm@10.6.2+sha512.47870716bea1572b53df34ad8647b42962bc790ce2bf4562ba0f643237d7302a3d6a8ecef9e4bdfc01d23af1969aa90485d4cebb0b9638fa5ef1daef656f6c1b",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "chalk": "4.1.2",
@@ -38,7 +38,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.11.0",
     "multer": "1.4.5-lts.1",
-    "nhb-toolbox": "^2.3.5",
+    "nhb-toolbox": "^2.3.8",
     "socket.io": "^4.8.1",
     "zod": "^3.24.2"
   },

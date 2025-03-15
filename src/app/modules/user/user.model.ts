@@ -1,8 +1,8 @@
 import { Schema, model } from 'mongoose';
-import type { IUserDoc, IUserModel } from './user.types';
-import { hashPassword } from '../../utilities/authUtilities';
 import { ErrorWithStatus } from '../../classes/ErrorWithStatus';
 import { STATUS_CODES, USER_ROLES } from '../../constants';
+import { hashPassword } from '../../utilities/authUtilities';
+import type { IUserDoc, IUserModel } from './user.types';
 
 const userSchema = new Schema<IUserDoc>(
 	{
@@ -36,7 +36,7 @@ const userSchema = new Schema<IUserDoc>(
 		},
 		isActive: {
 			type: Boolean,
-			default: true,
+			default: false,
 		},
 	},
 	{
