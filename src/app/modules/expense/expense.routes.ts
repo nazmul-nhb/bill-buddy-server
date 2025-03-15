@@ -17,6 +17,31 @@ router.post(
 	expenseControllers.createNewExpense,
 );
 
-router.get('/', expenseControllers.getAllExpenses);
+router.get(
+	'/',
+	authorizeUser('super_admin', 'admin', 'user'),
+	expenseControllers.getAllExpenses,
+);
+
+router.get(
+	'/:id',
+	authorizeUser('admin', 'user'),
+	expenseControllers.getSingleExpense,
+);
+
+router.delete(
+	'/:id',
+	authorizeUser('admin', 'user'),
+	expenseControllers.getSingleExpense,
+);
+
+router.patch(
+	'/:id',
+	authorizeUser('admin', 'user'),
+	uploadFile.single('receipt'),
+	parsePrimitives,
+	validateRequest(expenseValidations.updateSchema),
+	expenseControllers.updateExpense,
+);
 
 export const expenseRoutes = router;

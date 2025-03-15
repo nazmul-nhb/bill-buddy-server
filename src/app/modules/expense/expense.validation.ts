@@ -19,4 +19,6 @@ const creationSchema = z
 	})
 	.strict();
 
-export const expenseValidations = { creationSchema };
+const updateSchema = creationSchema.partial().strict();
+
+export const expenseValidations = { creationSchema, updateSchema };

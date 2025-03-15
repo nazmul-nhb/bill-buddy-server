@@ -28,10 +28,50 @@ const createNewExpense = catchAsync(async (req, res) => {
 	sendResponse(res, 'Expense', 'POST', expense);
 });
 
-const getAllExpenses = catchAsync(async (_req, res) => {
-	const expenses = await expenseServices.getAllExpensesFromDB();
+const getAllExpenses = catchAsync(async (req, res) => {
+	const expenses = await expenseServices.getAllExpensesFromDB(
+		req.query,
+		req.user?.email,
+	);
 
 	sendResponse(res, 'Expense', 'GET', expenses);
 });
 
-export const expenseControllers = { getAllExpenses, createNewExpense };
+const getSingleExpense = catchAsync(async (req, res) => {
+	const expense = await expenseServices.getSingleExpenseFromDB(
+		req.params.id,
+		req.user?.email,
+	);
+
+	sendResponse(res, 'Expense', 'GET', expense);
+});
+
+const updateExpense = catchAsync(async (req, res) => {
+	const expenseToUpdate = req.body as Partial<IExpenseData>;
+
+	if (req.file) {
+		const fileName = generateFileName('receipt');
+
+		const { secure_url } = await sendImageToCloudinary(
+			fileName,
+			req.file.buffer,
+		);
+
+		expenseToUpdate.receipt = secure_url.split(configs.imageBaseUrl)[1];
+	}
+
+	const expense = await expenseServices.updateExpenseInDB(
+		req.params.id,
+		expenseToUpdate,
+		req.user?.email,
+	);
+
+	sendResponse(res, 'Expense', 'GET', expense);
+});
+
+export const expenseControllers = {
+	createNewExpense,
+	getAllExpenses,
+	getSingleExpense,
+	updateExpense,
+};
