@@ -1,10 +1,10 @@
-import globals from 'globals';
 import jsConfig from '@eslint/js';
-import tseslint from 'typescript-eslint';
-import tsParser from '@typescript-eslint/parser';
 import tsEslintPlugin from '@typescript-eslint/eslint-plugin';
-import prettier from 'eslint-plugin-prettier';
+import tsParser from '@typescript-eslint/parser';
 import prettierConfig from 'eslint-config-prettier';
+import prettier from 'eslint-plugin-prettier';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -76,7 +76,7 @@ export default [
   //   rules: { "@typescript-eslint/no-explicit-any": "off" }
   // },
   {
-    files: ['dist/**/*.js'],
+    files: ['dist/**/*.js', 'scripts/**/*.cjs'],
     rules: { "@typescript-eslint/no-require-imports": "off" }
   }
 ];
